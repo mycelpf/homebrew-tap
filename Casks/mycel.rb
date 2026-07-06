@@ -4,22 +4,22 @@ cask "mycel" do
 
   on_macos do
     on_intel do
-      sha256 "de9347dd2afa1de11d4bee5db3f672f7b704a16a5eec03e5e5a741c842fd54c9"
+      sha256 "aeabc142018a7b31523bb640ba0d10dfc40ee997a39e0148906a7aa666b75d76"
       url "https://github.com/mycelpf/mycel_cli/releases/download/v#{version}/mycel_#{version}_darwin_amd64.tar.gz"
     end
     on_arm do
-      sha256 "59db26bd8db9bf8133294ab93edd15fa215c51c39e1819ea38e90f3a83a730db"
+      sha256 "4069f520361a90b449ad2283607779e247da975ac4b3e31fb0eb1017e672b10a"
       url "https://github.com/mycelpf/mycel_cli/releases/download/v#{version}/mycel_#{version}_darwin_arm64.tar.gz"
     end
   end
 
   on_linux do
     on_intel do
-      sha256 "a5c13dfcd9997c1e8ea2b24061bb74beefd57c20abb3b4f662e4e3362d32b846"
+      sha256 "619318b50d10e0cc0015cdaeebb44ab1d756fc0b751bf4e929038d689309a1c6"
       url "https://github.com/mycelpf/mycel_cli/releases/download/v#{version}/mycel_#{version}_linux_amd64.tar.gz"
     end
     on_arm do
-      sha256 "8c580f76296956fa96295e0aa246a2e605e4039132b06ca5ac63d07be84ec102"
+      sha256 "b0bfbe14531345bbe4a9471fc256a90b683d9d1d9b44e3d5b6d80584de8310cd"
       url "https://github.com/mycelpf/mycel_cli/releases/download/v#{version}/mycel_#{version}_linux_arm64.tar.gz"
     end
   end
@@ -33,6 +33,10 @@ cask "mycel" do
   end
 
   binary "mycel"
+
+  postflight do
+    system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/mycel"]
+  end
 
   # No zap stanza required
 
