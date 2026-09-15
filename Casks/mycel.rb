@@ -10,28 +10,28 @@ cask "mycel" do
 
   installer script: {
     executable: "/bin/sh",
-    args:       ["-c", "'#{staged_path}/mycel' carto start --all >/dev/null 2>&1 || true"],
+    args:       ["-c", "'#{staged_path}/mycel' mcp start --all >/dev/null 2>&1 || true"],
   }
 
-  version "0.3.82"
+  version "0.3.83"
 
   on_macos do
     on_arm do
-      sha256 "87fed5306d415fe7ed89b49b7ab7d3d6092643f8fd9478188a1ca1f68c7c4073"
+      sha256 "c5a295cfed23c16fe53d515b3b02c16b7d3404f241e71f2f8e02d8cb34427f64"
       url "https://github.com/mycelpf/mycel_cli/releases/download/v#{version}/mycel_#{version}_darwin_arm64.tar.gz"
     end
     on_intel do
-      sha256 "1bb03ebd5382071d05cb49bb444b5062ab2ae76529715e6b40d27c37a71ea9bb"
+      sha256 "bf1e4dbc8e3fc6838fb2a25a5afaed7b145dab23e04f0807e7845e1200b36fe2"
       url "https://github.com/mycelpf/mycel_cli/releases/download/v#{version}/mycel_#{version}_darwin_amd64.tar.gz"
     end
   end
   on_linux do
     on_arm do
-      sha256 "c327a15612e0c1f96e2fca347627c01a04653b714cf3eb603cf37377e4d80b4e"
+      sha256 "d13c82e82f5b3a6bc88e009073eff8950528e1f76880db0a0eb63b120c2bdc72"
       url "https://github.com/mycelpf/mycel_cli/releases/download/v#{version}/mycel_#{version}_linux_arm64.tar.gz"
     end
     on_intel do
-      sha256 "7a9fa61c0ad4791e095d94fdf26aea13def860e832633f299f87cabda0c793b3"
+      sha256 "ac708dcdc6cdfb0f5a15c1032a1a788c62af52a78f13ef8c78fa2f9022e9a9e0"
       url "https://github.com/mycelpf/mycel_cli/releases/download/v#{version}/mycel_#{version}_linux_amd64.tar.gz"
     end
   end
@@ -47,12 +47,12 @@ cask "mycel" do
   binary "mycel"
 
   uninstall launchctl: [
-      "com.cogniworks.mycel.carto.*",
+      "com.cogniworks.mycel.*",
     ]
 
   zap trash: [
-      "~/.config/mycel/carto",
-      "~/Library/Logs/mycel-carto-*.log",
+      "~/.config/mycel/mycel",
+      "~/Library/Logs/mycel-mycel-*.log",
     ]
 
   caveats <<~EOS
