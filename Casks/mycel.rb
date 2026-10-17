@@ -13,25 +13,25 @@ cask "mycel" do
     args:       ["-c", "'#{staged_path}/mycel' mcp start --all >/dev/null 2>&1 || true"],
   }
 
-  version "0.3.131"
+  version "0.3.132"
 
   on_macos do
     on_arm do
-      sha256 "38f0292a756cc06f61ce5fa0206587a6a2e4f709d53e6b6de7940283ed096e30"
+      sha256 "800051459c4793ea4d2b911c791faf849bc0b327fb227b519cbd2220010d80b0"
       url "https://github.com/mycelpf/mycel_cli/releases/download/v#{version}/mycel_#{version}_darwin_arm64.tar.gz"
     end
     on_intel do
-      sha256 "7d43e38f5867d7cf28025cca4308f55f6d3b908ccb07730524942d3fbf527dad"
+      sha256 "8d96cce87c11c938211a03c8c8cae0af8803c323aa60aa7b5f7ac4679127ce98"
       url "https://github.com/mycelpf/mycel_cli/releases/download/v#{version}/mycel_#{version}_darwin_amd64.tar.gz"
     end
   end
   on_linux do
     on_arm do
-      sha256 "5631d6703f80b130358ae981780e32cbc4c68720d86a0a8a7d7212c9f40a5fbe"
+      sha256 "e126767b0245b04a68cd6a6b3102475ebeb788908b494b6d4e6f3197848b35ef"
       url "https://github.com/mycelpf/mycel_cli/releases/download/v#{version}/mycel_#{version}_linux_arm64.tar.gz"
     end
     on_intel do
-      sha256 "7ed67e3117bf3fde23188f4436d3baa33d82afb096f82f4ec5e72c1abd225360"
+      sha256 "625e5d34a1c0e7eacc84d7bfbe8e3a2c158ad72b2d5abec5ed85c5bdc335665c"
       url "https://github.com/mycelpf/mycel_cli/releases/download/v#{version}/mycel_#{version}_linux_amd64.tar.gz"
     end
   end
